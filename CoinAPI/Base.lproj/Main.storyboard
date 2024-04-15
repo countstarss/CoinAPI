@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CoinAPI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="jBh-mR-Flf">
+                                <rect key="frame" x="20" y="159" width="353" height="300"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoinAPI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYS-pz-Bbi">
+                                        <rect key="frame" x="83.333333333333329" y="0.0" width="186.33333333333337" height="60"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="target / standard" textAlignment="center" minimumFontSize="35" translatesAutoresizingMaskIntoConstraints="NO" id="sB1-y2-L6o" userLabel="target Coin Field">
+                                        <rect key="frame" x="30" y="120" width="293" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardAppearance="alert"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxx-qM-8Am">
+                                        <rect key="frame" x="122.66666666666666" y="240" width="107.66666666666666" height="60"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="SEARCH">
+                                                    <attributes>
+                                                        <font key="NSFont" size="20" name="Helvetica"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="searchPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AEz-CQ-ghS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="sB1-y2-L6o" firstAttribute="leading" secondItem="jBh-mR-Flf" secondAttribute="leading" constant="30" id="2na-Z9-XSF"/>
+                                    <constraint firstAttribute="trailing" secondItem="sB1-y2-L6o" secondAttribute="trailing" constant="30" id="akj-7b-6VC"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.49959456169999999" green="0.52148357580000004" blue="0.85550697809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jBh-mR-Flf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="EfP-e5-OpD"/>
+                            <constraint firstItem="jBh-mR-Flf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="IXe-fs-qfH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jBh-mR-Flf" secondAttribute="trailing" constant="20" id="S9R-Ou-RBr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="appTitle" destination="aYS-pz-Bbi" id="nTf-Sv-nl7"/>
+                        <outlet property="targetCoinField" destination="sB1-y2-L6o" id="43f-w4-G7M"/>
+                        <segue destination="M3m-tN-ht4" kind="presentation" identifier="searchToResult" id="GWn-Wm-zQ1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135.1145038167939" y="4.9295774647887329"/>
+        </scene>
+        <!--Coin View Controller-->
+        <scene sceneID="ioK-h4-U1p">
+            <objects>
+                <viewController id="M3m-tN-ht4" customClass="CoinViewController" customModule="CoinAPI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleAspectFit" id="h6a-og-XOL">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzf-eu-ZoA">
+                                <rect key="frame" x="80" y="722" width="233" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Qiz-n8-ndT"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="RETURN">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="Helvetica-Bold"/>
+                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" red="0.41828260169999998" green="0.44944514759999998" blue="0.8329977448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="returnPressed:" destination="M3m-tN-ht4" eventType="touchUpInside" id="ViQ-OI-IrR"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="Ha4-hR-Zx1">
+                                <rect key="frame" x="40" y="200" width="313" height="232"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzV-wn-O4t">
+                                        <rect key="frame" x="105" y="0.0" width="103" height="60"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0m-zL-SKR">
+                                        <rect key="frame" x="111" y="86" width="91" height="60"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CNY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2Z-h1-hDo">
+                                        <rect key="frame" x="103.66666666666666" y="172" width="105.66666666666666" height="60"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ehw-TX-vdw"/>
+                        <color key="backgroundColor" red="0.49959456169999999" green="0.52148357580000004" blue="0.85550697809999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ehw-TX-vdw" firstAttribute="trailing" secondItem="Ha4-hR-Zx1" secondAttribute="trailing" constant="40" id="7oR-2Z-N0h"/>
+                            <constraint firstItem="ehw-TX-vdw" firstAttribute="trailing" secondItem="xzf-eu-ZoA" secondAttribute="trailing" constant="80" id="NP0-Op-V7F"/>
+                            <constraint firstItem="ehw-TX-vdw" firstAttribute="bottom" secondItem="xzf-eu-ZoA" secondAttribute="bottom" constant="80" id="RSi-xs-fDI"/>
+                            <constraint firstItem="Ha4-hR-Zx1" firstAttribute="top" secondItem="ehw-TX-vdw" secondAttribute="top" constant="200" id="giE-1R-T8X"/>
+                            <constraint firstItem="Ha4-hR-Zx1" firstAttribute="leading" secondItem="ehw-TX-vdw" secondAttribute="leading" constant="40" id="mDT-XO-gFm"/>
+                            <constraint firstItem="xzf-eu-ZoA" firstAttribute="leading" secondItem="ehw-TX-vdw" secondAttribute="leading" constant="80" id="u2p-Z2-ZCa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="CoinRate" destination="M0m-zL-SKR" id="9H5-So-C3g"/>
+                        <outlet property="coinRate" destination="M0m-zL-SKR" id="5Ay-S8-tK5"/>
+                        <outlet property="standardCoin" destination="s2Z-h1-hDo" id="tz3-bB-07e"/>
+                        <outlet property="targetCoin" destination="jzV-wn-O4t" id="qFP-hF-ech"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DGV-0D-fEm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1003.8167938931298" y="4.9295774647887329"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
